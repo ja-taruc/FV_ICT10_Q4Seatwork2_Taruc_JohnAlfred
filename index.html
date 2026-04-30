@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade 10 Classmates System</title>
+    
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+        *{
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: 'Poppins', sans-serif;
+        }
+
+        body{
+          min-height: 100vh;
+          background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
+          display: flex;
+          flex-direction: column;
+          margin: 0;
+          position: relative;
+          overflow-y: auto; /* Changed to auto so you can scroll through your list */
+        }
+
+        body::before {
+          content: "";
+          position: fixed; /* Changed to fixed so it stays in the background */
+          top: -50%;
+          left: -50%;
+          width: 200%;
+          height: 200%;
+          background: radial-gradient(circle at 25% 25%, #19A27255, transparent 30%),
+                      radial-gradient(circle at 75% 75%, #AD235855, transparent 30%);
+          z-index: 0;
+        }
+
+        nav {
+          width: 100%;
+          background: #0A4C86;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 15px 50px;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+          z-index: 10;
+        }
+
+        nav .logo {
+          color: #fff;
+          font-size: 24px;
+          font-weight: 700;
+        }
+
+        .container {
+          background: #0A4C86;
+          width: 520px;
+          padding: 50px;
+          border-radius: 15px;
+          box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+          border: 2px solid #19A272;
+          margin: 50px auto;
+          margin-top: 100px;
+          z-index: 5;
+          position: relative;
+        }
+
+        .container h2{
+          font-size: 34px;
+          font-weight: 600;
+          text-align: center;
+          margin-bottom: 35px;
+          color: #ffffff; 
+        }
+
+        .form-group{
+          margin: 25px 0;
+        }
+
+        .form-group input {
+          height: 55px;
+          width: 100%;
+          font-size: 18px;
+          border: 1px solid silver;
+          border-radius: 15px;
+          transition: 0.3s ease;
+          text-align: center;
+        }
+
+        .form-group input:focus {
+          border-color: #EF4985;
+          outline: none;
+        }
+
+        .button-group {
+          display: flex;
+          gap: 15px;
+          margin-top: 25px;
+        }
+
+        button{
+          height: 55px;
+          width: 100%;
+          border: 1px solid white;
+          border-radius: 15px;
+          color: #FFFFFF;
+          font-size: 18px;
+          font-weight: 600;
+          letter-spacing: 1px;
+          cursor: pointer;
+          background: linear-gradient(135deg, #19A272, #0A4C86);
+          transition: all 0.3s ease;
+        }
+
+        button:hover{
+          background: linear-gradient(135deg, #AD2358, #EF4985);
+          transform: translateY(-3px);
+          box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Message/Output Area */
+        .message {
+          margin-top: 25px;
+          padding: 18px;
+          border-radius: 15px;
+          font-weight: 500;
+          display: block; /* Shown by default to display the list */
+          text-align: center;
+          color: #fff;
+          background: rgba(255, 255, 255, 0.1);
+          border: 1px dashed #19A272;
+          min-height: 60px;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">ICT Project</div>
+</nav>
+
+<div class="container">
+    <h2>Classmate System</h2>
+
+    <div class="form-group">
+        <input type="text" id="name-in" placeholder="Enter Full Name">
+    </div>
+    <div class="form-group">
+        <input type="text" id="section-in" placeholder="Enter Section">
+    </div>
+    <div class="form-group">
+        <input type="text" id="subject-in" placeholder="Favorite Subject">
+    </div>
+
+    <div class="button-group">
+        <button py-click="add_student">Add Data</button>
+        <button py-click="display_list">Show List</button>
+    </div>
+
+    <div class="message" id="display-area">
+        Your list will appear here...
+    </div>
+</div>
+
+<script type="py" src="main.py"></script>
+
+</body>
+</html>
